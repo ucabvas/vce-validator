@@ -1,0 +1,32 @@
+# Default values for vce-validator.
+
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+securityContext: {}
+
+resources: {}
+
+volumes: []
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+cpuCheck:
+  enabled: true
+
+diskCheck:
+  enabled: true
+
+networkCheck:
+  enabled: true

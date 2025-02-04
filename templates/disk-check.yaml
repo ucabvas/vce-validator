@@ -1,0 +1,13 @@
+{{- if .Values.diskCheck.enabled }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: disk-check
+spec:
+  containers:
+    - name: disk-check
+      image: busybox
+      command: ["/bin/sh", "-c"]
+      args:
+        - "dd if=/dev/zero of=/tmp/output bs=8k count=1000 && rm /tmp/output"
+{{- end }}

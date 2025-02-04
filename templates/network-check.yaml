@@ -1,0 +1,20 @@
+{{- if .Values.networkCheck.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-check
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: network-check
+  template:
+    metadata:
+      labels:
+        app: network-check
+    spec:
+      containers:
+        - name: network-check
+          image: tutum/curl
+          args: ["curl", "-s", "https://www.google.com"]
+{{- end }}
