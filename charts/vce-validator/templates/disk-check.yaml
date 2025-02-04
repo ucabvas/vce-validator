@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include ".Chart.Name" }}-disk-check-job
+  name: {{ include "vce-validator.name" . }}-disk-check-job
 spec:
   template:
     spec:

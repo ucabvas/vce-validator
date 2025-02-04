@@ -1,10 +1,10 @@
 manifest-version: "1.0"
 product-group: com.palantir.apollo
 product-name: vce-validator
-product-version: 0.1.3
+product-version: 0.1.4
 product-type: helm-chart.v1
 extensions:
   helm-chart:
     helm-chart-name: vce-validator
-    helm-chart-version: 0.1.3
+    helm-chart-version: 0.1.4
     helm-repository-url: https://ucabvas.github.io/vce-validator/

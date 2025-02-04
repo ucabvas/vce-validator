@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include ".Chart.Name" }}-network-check-job
+  name: {{ include "vce-validator.name" . }}-network-check-job
 spec:
   template:
     spec:

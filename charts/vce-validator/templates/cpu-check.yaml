@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include ".Chart.Name" }}-cpu-check-job
+  name: {{ include "vce-validator.name" . }}-cpu-check-job
 spec:
   template:
     spec:
