@@ -3,6 +3,16 @@ entries:
   vce-validator:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-02-04T13:53:44.382236914Z"
+    description: A Helm chart for Kubernetes
+    digest: 65ed359cc7dc35f2ce88be43843f0f062cc1d384e7e0c1f9399c8580d658b35f
+    name: vce-validator
+    type: application
+    urls:
+    - https://github.com/ucabvas/vce-validator/releases/download/vce-validator-0.1.4/vce-validator-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-02-04T13:42:15.078703785Z"
     description: A Helm chart for Kubernetes
     digest: 53e4feb18217f668168c7b03ac3a4ce906360ab14ff8f8af031d873bababe4c5
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/ucabvas/vce-validator/releases/download/vce-validator-0.1.0/vce-validator-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-04T13:42:15.078719555Z"
+generated: "2025-02-04T13:53:44.38225636Z"
