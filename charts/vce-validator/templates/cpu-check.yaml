@@ -1,20 +1,16 @@
 {{- if .Values.cpuCheck.enabled }}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: cpu-check
+  name: {{ include ".Chart.Name" }}-cpu-check-job
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: cpu-check
   template:
-    metadata:
-      labels:
-        app: cpu-check
     spec:
       containers:
         - name: stress-test
           image: polinux/stress
+          command: ["stress"]
           args: ["--cpu", "2", "--timeout", "30s"]
+      restartPolicy: Never
+  backoffLimit: 0 # Ensure the Job does not retry if it fails
 {{- end }}

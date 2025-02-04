@@ -1,13 +1,17 @@
 {{- if .Values.diskCheck.enabled }}
-apiVersion: v1
-kind: Pod
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: disk-check
+  name: {{ include ".Chart.Name" }}-disk-check-job
 spec:
-  containers:
-    - name: disk-check
-      image: busybox
-      command: ["/bin/sh", "-c"]
-      args:
-        - "dd if=/dev/zero of=/tmp/output bs=8k count=1000 && rm /tmp/output"
+  template:
+    spec:
+      containers:
+        - name: disk-check
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args:
+            - "dd if=/dev/zero of=/tmp/output bs=8k count=1000 && rm /tmp/output"
+      restartPolicy: Never
+  backoffLimit: 0 # Ensure the Job does not retry if it fails
 {{- end }}

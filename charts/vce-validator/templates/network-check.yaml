@@ -1,20 +1,15 @@
 {{- if .Values.networkCheck.enabled }}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: network-check
+  name: {{ include ".Chart.Name" }}-network-check-job
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: network-check
   template:
-    metadata:
-      labels:
-        app: network-check
     spec:
       containers:
         - name: network-check
-          image: tutum/curl
+          image: curlimages/curl
           args: ["curl", "-s", "https://www.google.com"]
+      restartPolicy: Never
+  backoffLimit: 0 # Ensure the Job does not retry if it fails
 {{- end }}
